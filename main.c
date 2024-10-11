@@ -86,8 +86,6 @@ void joueurMouvement(char plateau[10][10], PositionJoueur* joueurPos,  PositionE
     plateau[deplacement_x][deplacement_y] = 'o';
     joueurPos->x = deplacement_x;
     joueurPos->y = deplacement_y;
-  } else {
-    printf("Impossible de bouger ici, obstacle présent !\n");
   }
   if(plateau[entrePos->x][entrePos->y] == ' '){
     plateau[entrePos->x][entrePos->y] = '.';
@@ -174,6 +172,7 @@ int main() {
 
   while (1) {
     system("clear");
+    printf("Joueur : %d %d \nBoite : %d %d \nEmplacement : %d %d \n", joueurPos.x, joueurPos.y, boitePos.x, boitePos.y, entrePos.x, entrePos.y);
     afficherPlateau(plateau);
     joueurMouvement(plateau, &joueurPos, &entrePos); 
     boitemouvement(plateau, &boitePos, &joueurPos, &entrePos);  
